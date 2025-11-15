@@ -1,9 +1,10 @@
 from langchain_core.prompts import PromptTemplate
 from langchain_ollama import ChatOllama
 
+
 def main():
     print("Hello from udemy-lang-py!")
-    
+
     # input data | base data
     information = """
     Elon Reeve Musk[b] (born June 28, 1971) is a businessman and entrepreneur known for his leadership of Tesla, SpaceX, Twitter, and xAI. Musk has been the wealthiest person in the world since 2021; as of October 2025, Forbes estimates his net worth to be around $500 billion.
@@ -26,8 +27,7 @@ def main():
 
     # define prompt template | define and combine variable in prompt and langchain prompt template
     summary_prompt_template = PromptTemplate(
-        input_variables=["information"], 
-        template=summary_template
+        input_variables=["information"], template=summary_template
     )
 
     # define model | using langchain model
@@ -37,6 +37,7 @@ def main():
     # model response
     response = chain.invoke(input={"information": information})
     print(response.content)
+
 
 if __name__ == "__main__":
     main()
